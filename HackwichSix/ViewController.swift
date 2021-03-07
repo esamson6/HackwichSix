@@ -9,7 +9,7 @@ import UIKit
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    var myFriendsArray = ["Felician","Rochelle","Melissa"]
+    var myFriendsArray = ["Felician", "Rochelle", "Melissa"]
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return myFriendsArray.count
@@ -23,7 +23,21 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
     }
     
-
+    var friendsHomeArray = ["Waipahu","Kapolei","Honolulu"]
+    
+    func tableView( tableView: UITableView, numberOfRowsInSection section: Int)-> Int {
+        return friendsHomeArray.count
+    }
+    private func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CellReuseIdentifier")
+        _ = friendsHomeArray
+        let text = myFriendsArray[indexPath.row]
+        cell?.textLabel?.text = text
+        cell?.detailTextLabel?.text=friendsHomeArray[indexPath.row]
+        return cell!
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
